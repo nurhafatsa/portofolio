@@ -1,0 +1,420 @@
+/* ==========================================================
+   PORTOFOLIO NURHAFATSA
+   Daftar isi:
+   1. Variabel (warna, font, ukuran)
+   2. Reset dan dasar
+   3. Layout
+   4. Sidebar dan navigasi
+   5. Komponen: intro, proyek, keahlian, timeline, kontak
+   6. Animasi
+   7. Responsif
+   ========================================================== */
+
+
+/* ---------- 1. Variabel ---------- */
+:root {
+  /* Warna (tema terang) */
+  --bg: #EDF0EC;
+  --surface: #E1E7E1;
+  --ink: #17252A;
+  --muted: #51635F;
+  --accent: #1F7A74;
+  --accent-ink: #FFFFFF;
+  --mark: #F2B632;
+  --line: #C5CFC8;
+
+  /* Font */
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+
+  /* Ukuran */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 72px;
+  --radius: 20px;
+  --maxw: 1200px;
+}
+
+/* Tema gelap: otomatis mengikuti perangkat, bisa diubah lewat tombol */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101B1C;
+    --surface: #182628;
+    --ink: #E6EEEA;
+    --muted: #9DB0AB;
+    --accent: #4FC1B6;
+    --accent-ink: #0B1617;
+    --line: #2B3F40;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101B1C;
+  --surface: #182628;
+  --ink: #E6EEEA;
+  --muted: #9DB0AB;
+  --accent: #4FC1B6;
+  --accent-ink: #0B1617;
+  --line: #2B3F40;
+}
+
+
+/* ---------- 2. Reset dan dasar ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+:root {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-3);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -100px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 8px;
+  z-index: 10;
+}
+.skip-link:focus { top: var(--space-2); }
+
+
+/* ---------- 3. Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  max-width: var(--maxw);
+  margin-inline: auto;
+}
+
+.content {
+  min-width: 0;
+  padding: 56px 48px 80px;
+}
+
+.section { padding-bottom: var(--space-5); }
+
+.section h2 {
+  font: 700 1.9rem/1.15 var(--font-display);
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+
+/* ---------- 4. Sidebar dan navigasi ---------- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  padding: 56px var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--line);
+
+}
+
+.avatar {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--mark);
+}
+
+.name {
+  font: 800 clamp(2.1rem, 3.6vw, 2.7rem)/1.05 var(--font-display);
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.role {
+  margin-top: 14px;
+  max-width: 26ch;
+  color: var(--muted);
+}
+
+.nav ul {
+  display: grid;
+  gap: 4px;
+  margin-top: var(--space-4);
+}
+
+.nav a {
+  display: inline-block;
+  padding: 6px 0;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav a:hover,
+.nav a.active {
+  color: var(--ink);
+  border-color: var(--mark);
+}
+
+.sidebar-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mark);
+}
+
+.theme-toggle {
+  margin-left: auto;
+  padding: 6px 14px;
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 0.85rem var(--font-body);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--surface); }
+
+
+/* ---------- 5. Komponen ---------- */
+
+/* Intro */
+.lead {
+  max-width: 30ch;
+  font: 500 clamp(1.5rem, 3vw, 2.2rem)/1.3 var(--font-display);
+  letter-spacing: -0.015em;
+}
+.lead mark {
+  background: linear-gradient(transparent 62%, var(--mark) 62%);
+  color: inherit;
+}
+.about-text {
+  max-width: 62ch;
+  margin-top: 28px;
+  color: var(--muted);
+}
+.about-text p + p { margin-top: var(--space-2); }
+
+/* Proyek */
+.project-list { border-top: 1px solid var(--line); }
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px var(--space-3);
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: padding 0.25s;
+}
+.project:hover { padding-left: 12px; }
+
+.project-title {
+  font: 700 1.3rem/1.25 var(--font-display);
+}
+.project-meta {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.project-desc {
+  grid-column: 1;
+  max-width: 56ch;
+  color: var(--muted);
+}
+
+.tags {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: 6px;
+}
+.tags li {
+  padding: 3px 12px;
+  background: var(--surface);
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+/* Keahlian */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+.skill-group h3 {
+  margin-bottom: 10px;
+  padding-bottom: var(--space-1);
+  border-bottom: 2px solid var(--accent);
+  font: 700 1.05rem var(--font-display);
+}
+.skill-group li {
+  padding: 3px 0;
+  color: var(--muted);
+}
+
+/* Timeline (urutan waktu) */
+.timeline {
+  padding-left: 22px;
+  border-left: 2px solid var(--line);
+}
+.timeline li {
+  position: relative;
+  padding-bottom: 30px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline-when {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.timeline h3 { font: 700 1.15rem var(--font-display); }
+.timeline p {
+  max-width: 58ch;
+  color: var(--muted);
+}
+
+/* Kontak */
+.contact {
+  padding: 44px var(--space-4);
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius);
+}
+.contact h2 { margin-bottom: 12px; }
+.contact p {
+  max-width: 44ch;
+  opacity: 0.92;
+}
+.contact :focus-visible { outline-color: var(--accent-ink); }
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px var(--space-3);
+  border: 2px solid var(--accent-ink);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-fill {
+  background: var(--accent-ink);
+  color: var(--accent);
+}
+.btn:hover {
+  background: var(--mark);
+  border-color: var(--mark);
+  color: #17252A;
+}
+
+.footer {
+  margin-top: 36px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 6. Animasi ---------- */
+.intro { animation: rise 0.8s ease both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ---------- 7. Responsif ---------- */
+@media (max-width: 860px) {
+  .layout { display: block; }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 36px var(--space-3) var(--space-1);
+    border-right: 0;
+  }
+  .nav ul {
+    grid-auto-flow: column;
+    gap: 18px;
+    margin: var(--space-3) 0 12px;
+    overflow-x: auto;
+  }
+  .sidebar-foot { margin-top: var(--space-2); }
+
+  .content { padding: 32px var(--space-3) 56px; }
+
+  .project { grid-template-columns: 1fr; }
+  .project-meta { grid-column: 1; grid-row: auto; }
+
+  .contact { padding: 32px var(--space-3); }
+}

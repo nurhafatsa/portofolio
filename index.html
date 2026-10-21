@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nurhafatsa – Mahasiswa Informatika, Web Developer</title>
+  <meta name="description" content="Portofolio Nurhafatsa, mahasiswa Informatika konsentrasi pengembangan website.">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+
+  <!-- Gaya -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+
+  <div class="layout">
+
+    <!-- ===== Sidebar ===== -->
+    <header class="sidebar">
+  <div>
+    <img class="avatar" src="caca.jpg" alt="Foto Nurhafatsa" width="140" height="140">
+    <h1 class="name">Nurhafatsa</h1>
+        <p class="role">Mahasiswa Informatika semester 5, konsentrasi website. Belajar membuat situs yang jelas, cepat, dan mudah dipakai.</p>
+
+        <nav class="nav" aria-label="Navigasi utama">
+          <ul>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#proyek">Proyek</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+            <li><a href="#pendidikan">Pendidikan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-foot">
+        <span class="status"><span class="status-dot" aria-hidden="true"></span>Terbuka untuk magang</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ganti tema terang atau gelap">Ganti tema</button>
+      </div>
+    </header>
+
+    <!-- ===== Konten utama ===== -->
+    <main class="content" id="konten">
+
+      <section id="tentang" class="section intro" aria-label="Tentang saya">
+        <p class="lead">Saya membangun website yang <mark>rapi, cepat,</mark> dan nyaman dipakai.</p>
+        <div class="about-text">
+          <p>Halo, saya Nurhafatsa, mahasiswa semester 5 Program Studi Informatika, Fakultas Teknik Komputer, dengan konsentrasi pengembangan website.</p>
+          <p>Saya senang mengerjakan tampilan front-end dan logika di balik layar. Saat ini saya mencari kesempatan magang sebagai web developer untuk menambah pengalaman di proyek nyata.</p>
+        </div>
+      </section>
+
+      <section id="proyek" class="section" aria-labelledby="judul-proyek">
+        <h2 id="judul-proyek">Proyek</h2>
+        <ul class="project-list">
+          <li>
+            <a class="project" href="#">
+              <h3 class="project-title">Sistem Informasi Perpustakaan</h3>
+              <span class="project-meta">Tugas kuliah</span>
+              <p class="project-desc">Aplikasi web untuk mengelola data buku, anggota, dan peminjaman, lengkap dengan login admin.</p>
+              <ul class="tags"><li>PHP</li><li>MySQL</li><li>Bootstrap</li></ul>
+            </a>
+          </li>
+          <li>
+            <a class="project" href="#">
+              <h3 class="project-title">Toko Online Sederhana</h3>
+              <span class="project-meta">Proyek mandiri</span>
+              <p class="project-desc">Situs jual beli dengan katalog produk, keranjang belanja, dan halaman checkout.</p>
+              <ul class="tags"><li>HTML &amp; CSS</li><li>JavaScript</li><li>Laravel</li></ul>
+            </a>
+          </li>
+          <li>
+            <a class="project" href="#">
+              <h3 class="project-title">Aplikasi Catatan Tugas</h3>
+              <span class="project-meta">Latihan</span>
+              <p class="project-desc">Aplikasi to-do list dengan fitur tenggat, kategori, dan penyimpanan data di peramban.</p>
+              <ul class="tags"><li>React</li><li>Tailwind CSS</li></ul>
+            </a>
+          </li>
+          <li>
+            <a class="project" href="#">
+              <h3 class="project-title">Website Portofolio</h3>
+              <span class="project-meta">Proyek ini</span>
+              <p class="project-desc">Halaman portofolio responsif dengan mode terang dan gelap, dipisah menjadi HTML, CSS, dan JavaScript.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="keahlian" class="section" aria-labelledby="judul-keahlian">
+        <h2 id="judul-keahlian">Keahlian</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Front-end</h3>
+            <ul><li>HTML, CSS, JavaScript</li><li>Bootstrap dan Tailwind CSS</li><li>React (dasar)</li><li>Desain responsif</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Back-end</h3>
+            <ul><li>PHP dan Laravel</li><li>MySQL</li><li>REST API (dasar)</li><li>Node.js (dasar)</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Alat dan kerja tim</h3>
+            <ul><li>Git dan GitHub</li><li>VS Code</li><li>Figma (dasar)</li><li>Proyek kelompok</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="pendidikan" class="section" aria-labelledby="judul-pendidikan">
+        <h2 id="judul-pendidikan">Pendidikan dan kegiatan</h2>
+        <ol class="timeline">
+          <li>
+            <time class="timeline-when">Semester 5 – sekarang</time>
+            <h3>Konsentrasi Website, Informatika</h3>
+            <p>Mempelajari pemrograman web lanjutan, basis data, dan rekayasa perangkat lunak.</p>
+          </li>
+          <li>
+            <time class="timeline-when">Semester 3 – 4</time>
+            <h3>Proyek kelompok perkuliahan</h3>
+            <p>Membangun aplikasi web bersama tim dan berlatih memakai Git untuk kerja kolaboratif.</p>
+          </li>
+          <li>
+            <time class="timeline-when">Semester 1 – 2</time>
+            <h3>Dasar pemrograman</h3>
+            <p>Mempelajari algoritma, struktur data, serta dasar HTML dan CSS.</p>
+          </li>
+          <li>
+            <time class="timeline-when">Mulai 2022</time>
+            <h3>Mahasiswa Informatika, Fakultas Teknik Komputer</h3>
+            <p>Mulai menempuh pendidikan S1 Informatika.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="kontak" class="section" aria-labelledby="judul-kontak">
+        <div class="contact">
+          <h2 id="judul-kontak">Mari terhubung.</h2>
+          <p>Saya terbuka untuk magang, proyek kecil, dan diskusi seputar pengembangan web.</p>
+          <div class="contact-actions">
+            <a class="btn btn-fill" href="mailto:email@contoh.com">Kirim email</a>
+            <a class="btn" href="#">LinkedIn</a>
+            <a class="btn" href="#">GitHub</a>
+          </div>
+        </div>
+        <footer class="footer">© <span id="year">2026</span> Nurhafatsa. Dibuat dengan HTML, CSS, dan JavaScript.</footer>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
